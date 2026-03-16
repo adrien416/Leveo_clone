@@ -68,12 +68,22 @@
     }
     .hero-logo {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
       margin-bottom: 40px;
     }
-    .hero-logo svg {
-      width: 220px;
-      height: auto;
+    .hero-logo-arrow {
+      display: block;
+      width: 60px;
+      height: 60px;
+      margin-bottom: -5px;
+    }
+    .hero-logo-text {
+      font-size: 4rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -1px;
+      line-height: 1;
     }
     .hero h1 {
       font-size: clamp(2rem, 5vw, 3.2rem);
@@ -550,16 +560,11 @@
   <section class="hero">
     <div class="container">
       <div class="hero-logo fade-in">
-        <svg viewBox="0 0 320 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Curved arrow -->
-          <path d="M120 170 C120 170, 130 80, 210 30" stroke="#FF1493" stroke-width="28" stroke-linecap="round" fill="none"/>
-          <!-- Arrowhead -->
-          <polygon points="195,8 250,18 218,58" fill="#FF1493"/>
-          <!-- Text: LevéO -->
-          <text x="8" y="185" font-family="Outfit, sans-serif" font-weight="800" font-size="98" fill="white" letter-spacing="-3">
-            <tspan>L</tspan><tspan>ev</tspan><tspan>é</tspan><tspan>O</tspan>
-          </text>
+        <svg class="hero-logo-arrow" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 72 C20 72, 18 28, 52 10" stroke="#FF1493" stroke-width="10" stroke-linecap="round" fill="none"/>
+          <polygon points="45,0 68,8 54,26" fill="#FF1493"/>
         </svg>
+        <div class="hero-logo-text">LevéO</div>
       </div>
       <h1 class="fade-in">Du pitch au deal :<br>La méthode ultime pour lever seul</h1>
       <p class="hero-desc fade-in">La méthode qui t'apprend toutes les étapes d'une levée de fonds de 200K€ à plusieurs millions €</p>
