@@ -30,33 +30,22 @@
        UTILITIES
        ============================================================ */
     .container { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 24px; }
-    .btn {
+    .btn-pink {
       display: inline-block;
-      padding: 16px 36px;
-      background: #1DB87A;
+      padding: 18px 48px;
+      background: linear-gradient(135deg, #E8318A, #F06BAC);
       color: #fff;
       font-family: 'Outfit', sans-serif;
       font-weight: 700;
-      font-size: 1.05rem;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: background .2s, transform .15s;
-    }
-    .btn:hover { background: #17a06a; transform: translateY(-1px); }
-    .btn:active { transform: translateY(0); }
-    .section-title {
-      font-size: clamp(1.75rem, 4vw, 2.5rem);
-      font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
-    .section-subtitle {
       font-size: 1.1rem;
-      color: #555;
-      max-width: 640px;
-      margin-bottom: 40px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 24px rgba(232, 49, 138, 0.35);
     }
+    .btn-pink:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(232, 49, 138, 0.45); }
+    .btn-pink:active { transform: translateY(0); }
     .fade-in {
       opacity: 0;
       transform: translateY(30px);
@@ -68,337 +57,384 @@
     }
 
     /* ============================================================
-       1. NAV
-       ============================================================ */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 100;
-      background: rgba(255,255,255,.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(0,0,0,.06);
-    }
-    .nav .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-    }
-    .nav-logo {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: #111;
-      letter-spacing: -.5px;
-    }
-    .nav-logo span { color: #1DB87A; }
-    .nav-cta {
-      padding: 10px 24px;
-      font-size: .9rem;
-      border-radius: 10px;
-    }
-    .burger {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      flex-direction: column;
-      gap: 5px;
-    }
-    .burger span {
-      display: block;
-      width: 24px;
-      height: 2.5px;
-      background: #111;
-      border-radius: 2px;
-      transition: transform .3s, opacity .3s;
-    }
-    @media (max-width: 640px) {
-      .nav-cta.desktop { display: none; }
-      .burger { display: flex; }
-      .mobile-menu {
-        display: none;
-        position: fixed;
-        top: 64px;
-        left: 0;
-        width: 100%;
-        background: #fff;
-        padding: 24px;
-        border-bottom: 1px solid #eee;
-        text-align: center;
-      }
-      .mobile-menu.open { display: block; }
-    }
-
-    /* ============================================================
-       2. HERO
+       1. HERO — Dark purple gradient, centered
        ============================================================ */
     .hero {
-      padding: 140px 0 80px;
-      background: linear-gradient(180deg, #F0FBF5 0%, #fff 100%);
+      background: linear-gradient(180deg, #1C1235 0%, #2A1845 40%, #1C1235 100%);
+      padding: 80px 0 60px;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
     }
-    .hero .container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
+    .hero-logo {
+      display: flex;
+      flex-direction: column;
       align-items: center;
+      margin-bottom: 40px;
     }
-    .hero h1 {
-      font-size: clamp(2.5rem, 5.5vw, 3.75rem);
+    .hero-logo .arrow {
+      font-size: 3rem;
+      color: #E8318A;
+      margin-bottom: -8px;
+      line-height: 1;
+    }
+    .hero-logo .logo-text {
+      font-size: 3.5rem;
       font-weight: 800;
-      line-height: 1.08;
-      margin-bottom: 12px;
+      letter-spacing: -1px;
     }
-    .hero h1 span { color: #1DB87A; }
-    .hero-tagline {
-      font-size: clamp(1.15rem, 2.5vw, 1.4rem);
-      font-weight: 600;
-      color: #333;
-      margin-bottom: 12px;
+    .hero-logo .logo-text .accent { color: #E8318A; }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
     }
     .hero-desc {
-      font-size: 1.05rem;
-      color: #555;
-      margin-bottom: 24px;
-      max-width: 480px;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,.75);
+      max-width: 680px;
+      margin: 0 auto 32px;
     }
     .hero-badges {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px 24px;
-      margin-bottom: 32px;
+      justify-content: center;
+      gap: 8px 24px;
+      margin-bottom: 40px;
       font-size: .95rem;
       font-weight: 500;
-      color: #333;
+      color: rgba(255,255,255,.9);
+    }
+    .hero-badges span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
     .hero-badges span::before {
-      content: "✓ ";
-      color: #1DB87A;
+      content: "✓";
+      color: #E8318A;
       font-weight: 700;
     }
-    .hero-visual {
+    .hero-photo {
+      margin-top: 48px;
+      display: flex;
+      justify-content: center;
+    }
+    .hero-photo img {
+      width: 100%;
+      max-width: 560px;
+      border-radius: 20px;
+      object-fit: cover;
+    }
+    .hero-photo-placeholder {
+      width: 100%;
+      max-width: 560px;
+      height: 320px;
+      background: linear-gradient(135deg, #2D1B4E, #3D2B5E);
+      border-radius: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-    .hero-visual svg { width: 100%; max-width: 420px; height: auto; }
-    @media (max-width: 768px) {
-      .hero .container { grid-template-columns: 1fr; text-align: center; }
-      .hero-badges { justify-content: center; }
-      .hero-desc { margin-left: auto; margin-right: auto; }
-      .hero-visual { order: -1; }
-      .hero-visual svg { max-width: 280px; }
+      color: rgba(255,255,255,.3);
+      font-size: 1.2rem;
     }
 
     /* ============================================================
-       3. SOCIAL PROOF
+       2. SOCIAL PROOF — Light background, logos
        ============================================================ */
     .social-proof {
-      padding: 40px 0;
+      padding: 48px 0;
       background: #fff;
-      border-top: 1px solid #eee;
-      border-bottom: 1px solid #eee;
     }
-    .social-proof .container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-      text-align: center;
-    }
-    .social-proof p {
-      font-size: 1.05rem;
+    .social-proof .container { text-align: center; }
+    .social-proof-title {
+      font-size: .85rem;
       font-weight: 600;
-      color: #555;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #8B6BAE;
+      margin-bottom: 32px;
     }
     .proof-logos {
       display: flex;
-      gap: 32px;
+      justify-content: center;
       align-items: center;
-      opacity: .45;
+      gap: 40px;
+      flex-wrap: wrap;
     }
     .proof-logos span {
-      font-size: .85rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: #888;
-    }
-
-    /* ============================================================
-       4. POURQUOI PAS UN LEVEUR
-       ============================================================ */
-    .why {
-      padding: 80px 0;
-      background: #F8F9FA;
-    }
-    .why .container { text-align: center; }
-    .why .section-subtitle { margin-left: auto; margin-right: auto; }
-    .compare-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: left;
-    }
-    .compare-col {
-      background: #fff;
-      border-radius: 14px;
-      padding: 32px;
-      box-shadow: 0 2px 16px rgba(0,0,0,.06);
-    }
-    .compare-col.leveo { border: 2px solid #1DB87A; }
-    .compare-col h3 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-    .compare-col.leveo h3 { color: #1DB87A; }
-    .compare-col ul li {
-      padding: 8px 0;
       font-size: .95rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-    }
-    .compare-col ul li::before {
-      flex-shrink: 0;
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-    .compare-col.cabinet ul li::before { content: "✗"; color: #d44; }
-    .compare-col.leveo ul li::before { content: "✓"; color: #1DB87A; font-weight: 700; }
-    @media (max-width: 640px) {
-      .compare-grid { grid-template-columns: 1fr; }
+      font-weight: 700;
+      color: #333;
+      letter-spacing: .5px;
+      opacity: .7;
     }
 
     /* ============================================================
-       5. CE QUE TU OBTIENS
+       3. POURQUOI — White card on light bg
+       ============================================================ */
+    .why-card-section {
+      padding: 48px 0;
+      background: #F4F2F8;
+    }
+    .why-card {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 18px;
+      padding: 40px 48px;
+      text-align: center;
+      box-shadow: 0 4px 40px rgba(0,0,0,.06);
+      border: 1px solid rgba(0,0,0,.05);
+    }
+    .why-card h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .why-card p {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.7;
+    }
+    .why-card .underline {
+      text-decoration: underline;
+      font-weight: 700;
+    }
+
+    /* ============================================================
+       4. BENEFITS — Dark purple bg, 3×2 card grid
        ============================================================ */
     .benefits {
       padding: 80px 0;
-      background: #fff;
+      background: linear-gradient(180deg, #1C1235 0%, #221740 100%);
+      color: #fff;
     }
     .benefits .container { text-align: center; }
-    .benefits .section-subtitle { margin-left: auto; margin-right: auto; }
+    .benefits .section-title {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .benefits .section-subtitle {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,.6);
+      margin-bottom: 48px;
+    }
     .benefits-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
-      text-align: left;
+      text-align: center;
     }
     .benefit-card {
-      background: #F8F9FA;
-      border-radius: 14px;
-      padding: 28px;
-      box-shadow: 0 2px 12px rgba(0,0,0,.04);
-      transition: transform .2s, box-shadow .2s;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(232, 49, 138, .25);
+      border-radius: 16px;
+      padding: 36px 24px;
+      transition: transform .2s, border-color .3s;
     }
     .benefit-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0,0,0,.08);
+      border-color: rgba(232, 49, 138, .5);
+    }
+    .benefit-card:nth-child(2),
+    .benefit-card:nth-child(5) {
+      border-color: rgba(0, 200, 200, .3);
+    }
+    .benefit-card:nth-child(2):hover,
+    .benefit-card:nth-child(5):hover {
+      border-color: rgba(0, 200, 200, .6);
+    }
+    .benefit-card:nth-child(3),
+    .benefit-card:nth-child(6) {
+      border-color: rgba(138, 100, 220, .3);
+    }
+    .benefit-card:nth-child(3):hover,
+    .benefit-card:nth-child(6):hover {
+      border-color: rgba(138, 100, 220, .6);
     }
     .benefit-icon {
-      width: 48px;
-      height: 48px;
-      background: #E6F9F0;
-      border-radius: 12px;
+      width: 64px;
+      height: 64px;
+      background: #E8318A;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.4rem;
-      margin-bottom: 16px;
+      font-size: 1.6rem;
+      margin: 0 auto 20px;
     }
     .benefit-card h3 {
       font-size: 1.05rem;
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
     .benefit-card p {
-      font-size: .9rem;
-      color: #555;
-      line-height: 1.5;
+      font-size: .88rem;
+      color: rgba(255,255,255,.6);
+      line-height: 1.55;
     }
     @media (max-width: 768px) {
-      .benefits-grid { grid-template-columns: 1fr; }
+      .benefits-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
     }
 
     /* ============================================================
-       6. LES 6 MODULES - TIMELINE
+       5. MODULES — Light bg, photo cards in 3-col grid
        ============================================================ */
     .modules {
       padding: 80px 0;
-      background: #F8F9FA;
+      background: #EEEAF3;
     }
     .modules .container { text-align: center; }
-    .modules .section-subtitle { margin-left: auto; margin-right: auto; }
-    .timeline {
-      max-width: 680px;
-      margin: 0 auto;
-      position: relative;
-      text-align: left;
-      padding-left: 48px;
+    .modules-title {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #8B4DAD, #E8318A);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 18px;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: linear-gradient(180deg, #1DB87A, #0d7a4e);
-      border-radius: 3px;
+    .modules-subtitle {
+      font-size: 1.05rem;
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto 48px;
+      line-height: 1.7;
     }
-    .timeline-item {
-      position: relative;
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
       margin-bottom: 40px;
     }
-    .timeline-item:last-child { margin-bottom: 0; }
-    .timeline-dot {
-      position: absolute;
-      left: -39px;
-      top: 4px;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: #1DB87A;
-      color: #fff;
-      font-size: .8rem;
-      font-weight: 700;
+    .module-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,.06);
+      text-align: center;
+      transition: transform .2s;
+    }
+    .module-card:hover { transform: translateY(-4px); }
+    .module-card-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .module-card-img-placeholder {
+      width: 100%;
+      height: 180px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 0 4px #F8F9FA;
+      font-size: 3rem;
     }
-    .timeline-item h3 {
-      font-size: 1.1rem;
+    .module-card-img-placeholder.pitch { background: linear-gradient(135deg, #e8e0f0, #d8d0e8); }
+    .module-card-img-placeholder.bp { background: linear-gradient(135deg, #d0e8d8, #c0dcd0); }
+    .module-card-img-placeholder.valo { background: linear-gradient(135deg, #d8dce8, #c8d0dc); }
+    .module-card-img-placeholder.reseau { background: linear-gradient(135deg, #d0d8e8, #c0c8dc); }
+    .module-card-img-placeholder.nego { background: linear-gradient(135deg, #e0d8e8, #d0c8dc); }
+    .module-card-img-placeholder.post { background: linear-gradient(135deg, #e8d8e0, #dcc8d0); }
+    .module-card-body {
+      padding: 24px 20px 28px;
+    }
+    .module-card-body .step {
+      font-size: .8rem;
       font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #666;
       margin-bottom: 6px;
     }
-    .timeline-item h3 span { color: #1DB87A; }
-    .timeline-item p {
+    .module-card-body h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .module-card-body p {
+      font-size: .88rem;
+      color: #555;
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+    .module-card-body .checklist {
+      text-align: left;
+      font-size: .85rem;
+      color: #444;
+    }
+    .module-card-body .checklist li {
+      padding: 3px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .module-card-body .checklist li::before {
+      content: "✓";
+      color: #E8318A;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* Milestone banners */
+    .milestone-banner {
+      max-width: 780px;
+      margin: 0 auto 40px;
+      background: #fff;
+      border-radius: 14px;
+      padding: 24px 32px;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(0,0,0,.06);
+    }
+    .milestone-banner h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+    .milestone-banner p {
       font-size: .92rem;
       color: #555;
+      margin-top: 8px;
+      line-height: 1.6;
     }
-    .timeline-milestone {
-      position: relative;
-      margin-bottom: 40px;
-      background: linear-gradient(135deg, #E6F9F0, #d4f5e6);
-      border-radius: 12px;
-      padding: 16px 20px;
-      font-weight: 700;
-      font-size: .95rem;
-      color: #0d7a4e;
+
+    @media (max-width: 768px) {
+      .modules-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto 40px; }
+    }
+
+    /* ============================================================
+       6. CTA SECTION
+       ============================================================ */
+    .cta-section {
+      padding: 80px 0;
+      background: linear-gradient(180deg, #1C1235, #2A1845);
+      color: #fff;
       text-align: center;
     }
-    .timeline-milestone .timeline-dot {
-      background: #fff;
-      color: #1DB87A;
-      border: 2px solid #1DB87A;
-      font-size: 1rem;
+    .cta-section h2 {
+      font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    .cta-section p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,.65);
+      max-width: 560px;
+      margin: 0 auto 36px;
+    }
+    .calendly-placeholder {
+      max-width: 640px;
+      margin: 0 auto;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 16px;
+      padding: 48px 24px;
+    }
+    .calendly-placeholder p {
+      color: rgba(255,255,255,.5);
+      font-size: .95rem;
     }
 
     /* ============================================================
@@ -406,10 +442,19 @@
        ============================================================ */
     .testimonials {
       padding: 80px 0;
-      background: #fff;
+      background: #F4F2F8;
     }
     .testimonials .container { text-align: center; }
-    .testimonials .section-subtitle { margin-left: auto; margin-right: auto; }
+    .testimonials .section-title {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .testimonials .section-subtitle {
+      font-size: 1.05rem;
+      color: #666;
+      margin-bottom: 48px;
+    }
     .testimonials-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -417,10 +462,10 @@
       text-align: left;
     }
     .testimonial-card {
-      background: #F8F9FA;
-      border-radius: 14px;
+      background: #fff;
+      border-radius: 16px;
       padding: 28px;
-      box-shadow: 0 2px 12px rgba(0,0,0,.04);
+      box-shadow: 0 4px 24px rgba(0,0,0,.06);
     }
     .testimonial-stars {
       color: #f5b731;
@@ -443,18 +488,6 @@
       font-size: .8rem;
       color: #888;
     }
-    .trustpilot-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 32px;
-      background: #F8F9FA;
-      padding: 12px 24px;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: .95rem;
-    }
-    .trustpilot-badge .stars { color: #f5b731; }
     @media (max-width: 768px) {
       .testimonials-grid { grid-template-columns: 1fr; }
     }
@@ -464,91 +497,47 @@
        ============================================================ */
     .guarantee {
       padding: 60px 0;
-      background: #F8F9FA;
+      background: linear-gradient(180deg, #1C1235, #221740);
+      color: #fff;
     }
     .guarantee-box {
       max-width: 720px;
       margin: 0 auto;
       text-align: center;
-      background: linear-gradient(135deg, #E6F9F0, #d4f5e6);
-      border-radius: 18px;
-      padding: 48px 40px;
-      border: 2px solid #1DB87A;
     }
     .guarantee-icon {
-      width: 72px;
-      height: 72px;
-      background: #1DB87A;
+      width: 80px;
+      height: 80px;
+      background: #E8318A;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0 auto 20px;
-      font-size: 2rem;
+      font-size: 2.2rem;
     }
     .guarantee-box h2 {
       font-size: 1.5rem;
       font-weight: 800;
       margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
     .guarantee-box p {
       font-size: 1rem;
-      color: #333;
-      max-width: 520px;
+      color: rgba(255,255,255,.7);
+      max-width: 540px;
       margin: 0 auto;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     /* ============================================================
-       9. CTA FINAL
-       ============================================================ */
-    .cta-section {
-      padding: 80px 0;
-      background: #fff;
-    }
-    .cta-section .container { text-align: center; }
-    .cta-section .section-subtitle { margin-left: auto; margin-right: auto; }
-    #contact-form {
-      max-width: 440px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      text-align: left;
-    }
-    #contact-form input[type="text"],
-    #contact-form input[type="email"],
-    #contact-form input[type="tel"] {
-      width: 100%;
-      padding: 14px 18px;
-      border: 1.5px solid #ddd;
-      border-radius: 10px;
-      font-family: 'Outfit', sans-serif;
-      font-size: 1rem;
-      transition: border-color .2s;
-      background: #F8F9FA;
-    }
-    #contact-form input:focus {
-      outline: none;
-      border-color: #1DB87A;
-      background: #fff;
-    }
-    #contact-form .btn { width: 100%; text-align: center; }
-    .form-msg {
-      margin-top: 16px;
-      font-weight: 600;
-      font-size: .95rem;
-    }
-    .form-msg.success { color: #1DB87A; }
-    .form-msg.error { color: #d44; }
-
-    /* ============================================================
-       10. FOOTER
+       9. FOOTER
        ============================================================ */
     .footer {
       padding: 32px 0;
-      background: #111;
-      color: #aaa;
+      background: #0F0B1A;
+      color: #777;
       font-size: .85rem;
     }
     .footer .container {
@@ -571,218 +560,225 @@
 <body>
 
   <!-- ============================================================
-       1. NAV
-       ============================================================ -->
-  <nav class="nav">
-    <div class="container">
-      <a href="#" class="nav-logo">Levé<span>O</span></a>
-      <a href="#cta" class="btn nav-cta desktop">Réserver un appel gratuit</a>
-      <button class="burger" aria-label="Menu" id="burger">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="mobile-menu" id="mobile-menu">
-      <a href="#cta" class="btn nav-cta" id="mobile-cta">Réserver un appel gratuit</a>
-    </div>
-  </nav>
-
-  <!-- ============================================================
-       2. HERO
+       1. HERO
        ============================================================ -->
   <section class="hero">
     <div class="container">
-      <div class="hero-content fade-in">
-        <h1>Du pitch <span>au deal</span></h1>
-        <p class="hero-tagline">La méthode ultime pour lever seul</p>
-        <p class="hero-desc">Toutes les étapes d'une levée de 200K€ à plusieurs millions €</p>
-        <div class="hero-badges">
-          <span>6 modules complets</span>
-          <span>Templates personnalisables</span>
-          <span>6h de coaching</span>
-          <span>Pitchs en live</span>
-        </div>
-        <a href="#cta" class="btn">Réserver mon appel gratuit</a>
+      <div class="hero-logo fade-in">
+        <div class="arrow">&#x2197;</div>
+        <div class="logo-text">Lev<span class="accent">é</span>O</div>
       </div>
-      <div class="hero-visual fade-in">
-        <svg viewBox="0 0 420 360" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Grille de fond -->
-          <line x1="40" y1="300" x2="380" y2="300" stroke="#e0e0e0" stroke-width="1"/>
-          <line x1="40" y1="240" x2="380" y2="240" stroke="#f0f0f0" stroke-width="1"/>
-          <line x1="40" y1="180" x2="380" y2="180" stroke="#f0f0f0" stroke-width="1"/>
-          <line x1="40" y1="120" x2="380" y2="120" stroke="#f0f0f0" stroke-width="1"/>
-          <line x1="40" y1="60" x2="380" y2="60" stroke="#f0f0f0" stroke-width="1"/>
-          <!-- Courbe de croissance -->
-          <defs>
-            <linearGradient id="curveGrad" x1="60" y1="280" x2="360" y2="50">
-              <stop offset="0%" stop-color="#1DB87A" stop-opacity="0.1"/>
-              <stop offset="100%" stop-color="#1DB87A" stop-opacity="0.3"/>
-            </linearGradient>
-          </defs>
-          <path d="M60 280 Q120 270 160 240 Q200 210 230 170 Q260 130 300 90 Q330 60 360 40" stroke="#1DB87A" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-          <path d="M60 280 Q120 270 160 240 Q200 210 230 170 Q260 130 300 90 Q330 60 360 40 L360 300 L60 300 Z" fill="url(#curveGrad)"/>
-          <!-- Points -->
-          <circle cx="60" cy="280" r="5" fill="#1DB87A"/>
-          <circle cx="160" cy="240" r="5" fill="#1DB87A"/>
-          <circle cx="230" cy="170" r="5" fill="#1DB87A"/>
-          <circle cx="300" cy="90" r="5" fill="#1DB87A"/>
-          <circle cx="360" cy="40" r="7" fill="#1DB87A" stroke="#fff" stroke-width="2"/>
-          <!-- Labels -->
-          <text x="48" y="318" font-size="11" fill="#999" font-family="Outfit, sans-serif">Pitch</text>
-          <text x="140" y="318" font-size="11" fill="#999" font-family="Outfit, sans-serif">BP</text>
-          <text x="206" y="318" font-size="11" fill="#999" font-family="Outfit, sans-serif">Valorisation</text>
-          <text x="280" y="318" font-size="11" fill="#999" font-family="Outfit, sans-serif">Réseau</text>
-          <text x="332" y="318" font-size="11" fill="#999" font-family="Outfit, sans-serif">Deal ✓</text>
-          <!-- Flèche succès -->
-          <text x="340" y="30" font-size="20" fill="#1DB87A">🚀</text>
-        </svg>
+      <h1 class="fade-in">Du pitch au deal :<br>La méthode ultime pour lever seul</h1>
+      <p class="hero-desc fade-in">La méthode qui t'apprend toutes les étapes d'une levée de fonds de 200K€ à plusieurs millions €</p>
+      <div class="hero-badges fade-in">
+        <span>6 modules complets</span>
+        <span>Templates personnalisables</span>
+        <span>6h de coaching</span>
+        <span>Entrainements au pitch en live</span>
+      </div>
+      <a href="#cta" class="btn-pink fade-in">Réserve ton appel gratuit</a>
+      <div class="hero-photo fade-in">
+        <div class="hero-photo-placeholder">Photo du fondateur</div>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       3. SOCIAL PROOF BARRE
+       2. SOCIAL PROOF
        ============================================================ -->
   <section class="social-proof fade-in">
     <div class="container">
-      <p>15 ans d'expérience en investissement et levée de fonds</p>
+      <p class="social-proof-title">Experience cumulée de 15 ans dans l'investissement et la levée de fonds</p>
       <div class="proof-logos">
-        <span>PE Fund</span>
-        <span>Impact Inv.</span>
-        <span>CDC</span>
-        <span>VC Partners</span>
+        <span>XAnge / Siparex Group</span>
+        <span>Crédit Agricole</span>
+        <span>WaterStart</span>
+        <span>NCI</span>
+        <span>Banque des Territoires</span>
+        <span>Société Générale</span>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       4. POURQUOI PAS UN LEVEUR ?
+       3. POURQUOI CARD
        ============================================================ -->
-  <section class="why fade-in">
+  <section class="why-card-section fade-in">
     <div class="container">
-      <h2 class="section-title">Pourquoi payer un leveur quand tu peux faire toi-même ?</h2>
-      <p class="section-subtitle">Les cabinets facturent 5 à 7 % — soit 50K€ à 70K€ pour 1M€ levé. LevéO te donne la même expertise, 10× moins cher, avec 100 % du contrôle.</p>
-      <div class="compare-grid">
-        <div class="compare-col cabinet">
-          <h3>Cabinet classique</h3>
-          <ul>
-            <li>5 à 7 % de la levée en honoraires</li>
-            <li>Peu de transparence sur le process</li>
-            <li>Tu dépends de leur calendrier</li>
-            <li>Relation investisseur intermédiée</li>
-            <li>Aucun transfert de compétences</li>
-          </ul>
-        </div>
-        <div class="compare-col leveo">
-          <h3>LevéO</h3>
-          <ul>
-            <li>10× moins cher qu'un cabinet</li>
-            <li>Méthodologie transparente pas à pas</li>
-            <li>Tu avances à ton rythme</li>
-            <li>Contact direct avec les investisseurs</li>
-            <li>Compétences acquises pour tes futures levées</li>
-          </ul>
-        </div>
+      <div class="why-card">
+        <h2>🔥 Pourquoi payer un leveur quand tu peux faire toi-même ?</h2>
+        <p>Les cabinets spécialisés facturent 5% à 7% de ta levée (soit 50k€ à 70k€ pour une levée d'1M€).<br>
+        Avec LevéO, obtiens la même expertise et garde 100% du contrôle de ton processus pour <span class="underline">10x moins</span> !</p>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       5. CE QUE TU OBTIENS
+       4. BENEFITS — Dark section, 3×2 grid
        ============================================================ -->
   <section class="benefits fade-in">
     <div class="container">
-      <h2 class="section-title">Ce que tu obtiens</h2>
-      <p class="section-subtitle">Tout ce qu'il faut pour réussir ta levée, rassemblé en une seule formation.</p>
+      <h2 class="section-title">Pourquoi tu vas réussir à lever</h2>
+      <p class="section-subtitle">Tous les outils pour réussir ta levée</p>
       <div class="benefits-grid">
+
         <div class="benefit-card">
-          <div class="benefit-icon">🎯</div>
+          <div class="benefit-icon">🎓</div>
           <h3>6h de coaching individuel</h3>
-          <p>Séances one-to-one avec un expert pour adapter la méthode à ton projet.</p>
+          <p>Coaching one-to-one : valide tes livrables, simule l'entretien VC, obtiens un avis sur les investisseurs rencontrés et des conseils sur tes négociations d'entrée</p>
         </div>
+
         <div class="benefit-card">
-          <div class="benefit-icon">📄</div>
-          <h3>Templates clés en main</h3>
-          <p>Pitch deck, business plan, term-sheet, Excel valorisation, scripts emails, CRM.</p>
+          <div class="benefit-icon">📋</div>
+          <h3>Templates pré-remplies & ressources</h3>
+          <p>Ton kit pro pour lever : pitch deck, business plan, term-sheet, Excel de valorisation, fiches pratiques, scripts d'approche des investisseurs & CRM.</p>
         </div>
+
         <div class="benefit-card">
           <div class="benefit-icon">👥</div>
-          <h3>Communauté exclusive</h3>
-          <p>Pitchs à blanc hebdomadaires entre entrepreneurs pour affûter ton discours.</p>
+          <h3>Communauté exclusive d'entrepreneurs</h3>
+          <p>Plateforme communautaire : rencontres exclusives et pitchs "à blanc" hebdomadaires devant d'autres entrepreneurs</p>
         </div>
+
         <div class="benefit-card">
-          <div class="benefit-icon">📡</div>
-          <h3>Lives Q&R mensuels</h3>
-          <p>Avec un avocat, un expert-comptable et des entrepreneurs passés par là.</p>
+          <div class="benefit-icon">🔴</div>
+          <h3>Lives Q&R</h3>
+          <p>Chaque mois, un live avec l'équipe LevéO et des experts (avocat, expert-comptable, coachs en prise de parole, entrepreneur qui ont levé...)</p>
         </div>
-        <div class="benefit-card">
-          <div class="benefit-icon">📊</div>
-          <h3>Base investisseurs</h3>
-          <p>Base auto-enrichie par les membres, filtrée par secteur et ticket.</p>
-        </div>
+
         <div class="benefit-card">
           <div class="benefit-icon">💰</div>
-          <h3>Remises négociées</h3>
-          <p>Tarifs préférentiels avocats, experts-comptables et prestataires partenaires.</p>
+          <h3>Base d'investisseurs auto-gérée</h3>
+          <p>Enrichie en continu par chaque membre de LevéO pour des leads d'investisseurs toujours à jour</p>
         </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon">🔄</div>
+          <h3>Remises exclusives</h3>
+          <p>Profite de remises qu'on t'a négocié avec les meilleurs avocats & expert-comptables</p>
+        </div>
+
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       6. LES 6 MODULES
+       5. LES 6 MODULES
        ============================================================ -->
   <section class="modules fade-in">
     <div class="container">
-      <h2 class="section-title">Les 6 modules</h2>
-      <p class="section-subtitle">Un parcours structuré du pitch à la post-levée, étape par étape.</p>
-      <div class="timeline">
+      <h2 class="modules-title">Un parcours complet en 6 modules</h2>
+      <p class="modules-subtitle">Notre formation te guide pas à pas à travers toutes les étapes cruciales de ta levée de fonds, avec des modules conçus par des entrepreneurs pour des entrepreneurs.</p>
 
-        <div class="timeline-item fade-in">
-          <div class="timeline-dot">1</div>
-          <h3><span>Pitch &amp; Deck</span></h3>
-          <p>Construis un pitch irrésistible, maîtrise la méthode "20 sec — 2 min — 20 min" et utilise le template deck prêt à l'emploi.</p>
+      <!-- Row 1: Modules 1-3 -->
+      <div class="modules-grid">
+        <div class="module-card">
+          <div class="module-card-img-placeholder pitch">🎤</div>
+          <div class="module-card-body">
+            <div class="step">Étape 1 – Pitch & Deck</div>
+            <h3>Crée un pitch irrésistible</h3>
+            <p>Maîtrisez l'art de présenter votre projet de manière convaincante, à l'écrit comme à l'oral.</p>
+            <ul class="checklist">
+              <li>Template de deck avec les infos qu'attendent les investisseurs</li>
+              <li>Entrainements au pitch à l'oral - méthode "20sec - 2min - 20min"</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="timeline-item fade-in">
-          <div class="timeline-dot">2</div>
-          <h3><span>Business Plan</span></h3>
-          <p>Rédige un BP béton, identifie les KPI que regardent les investisseurs et construis des projections financières crédibles.</p>
+        <div class="module-card">
+          <div class="module-card-img-placeholder bp">📈</div>
+          <div class="module-card-body">
+            <div class="step">Étape 2 – BP</div>
+            <h3>Construis un business plan béton</h3>
+            <p>Transforme ta vision en chiffres. On te donne les KPI que veulent voir les investisseurs dans ton BP.</p>
+            <ul class="checklist">
+              <li>Business plan type personnalisable</li>
+              <li>Modèle de projections financières</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="timeline-item fade-in">
-          <div class="timeline-dot">3</div>
-          <h3><span>Valorisation</span></h3>
-          <p>Apprends à défendre ta valeur, évite la dilution excessive et utilise l'Excel de valorisation LevéO.</p>
+        <div class="module-card">
+          <div class="module-card-img-placeholder valo">💵</div>
+          <div class="module-card-body">
+            <div class="step">Étape 3 – Valorisation</div>
+            <h3>Obtiens une valorisation optimale</h3>
+            <p>Tous les outils pour établir et défendre devant les investisseurs la valorisation de ta boite, pour éviter de diluer.</p>
+            <ul class="checklist">
+              <li>Fichier Excel type de valorisation</li>
+              <li>Guide des méthodes de valorisation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Milestone 1 -->
+      <div class="milestone-banner">
+        <h3>🎯 Bravo ! Tu es maintenant prêt à rencontrer les investisseurs.</h3>
+        <p>Avec ton pitch deck, ton business plan et ta liste de prospects, tu as tous les outils pour convaincre.</p>
+      </div>
+
+      <!-- Row 2: Modules 4-6 -->
+      <div class="modules-grid">
+        <div class="module-card">
+          <div class="module-card-img-placeholder reseau">🤝</div>
+          <div class="module-card-body">
+            <div class="step">Étape 4 – Réseau</div>
+            <h3>Décroche tes premiers RDV</h3>
+            <p>Active ton réseau, sélectionne les investisseurs qui correspondent vraiment à ton projet et contacte-les efficacement.</p>
+            <ul class="checklist">
+              <li>CRM LevéO investisseurs prêt à l'emploi</li>
+              <li>Templates prouvées d'emails d'approche</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="timeline-milestone fade-in">
-          <div class="timeline-dot">✓</div>
-          Tu es prêt à rencontrer les investisseurs
+        <div class="module-card">
+          <div class="module-card-img-placeholder nego">📝</div>
+          <div class="module-card-body">
+            <div class="step">Étape 5 – Négociations</div>
+            <h3>Term-sheet décodé</h3>
+            <p>On descend ensemble un term-sheet et ce que ca veut dire pour ton business. Evite les pièges couteux à long terme.</p>
+            <ul class="checklist">
+              <li>Term sheet commenté clause par clause</li>
+              <li>Guide des erreurs de négociation à éviter</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="timeline-item fade-in">
-          <div class="timeline-dot">4</div>
-          <h3><span>Réseau</span></h3>
-          <p>Utilise le CRM LevéO, les templates emails d'approche et sélectionne les bons investisseurs pour ton projet.</p>
+        <div class="module-card">
+          <div class="module-card-img-placeholder post">🏢</div>
+          <div class="module-card-body">
+            <div class="step">Étape 6 – Avec tes actionnaires</div>
+            <h3>Et après la levée?</h3>
+            <p>Gère efficacement la relation post-levée avec tes actionnaires (reporting, boards...) et ose les mettre à contribution</p>
+            <ul class="checklist">
+              <li>Modèle de reporting financier</li>
+              <li>Template d'ordre du jour de board</li>
+            </ul>
+          </div>
         </div>
+      </div>
 
-        <div class="timeline-item fade-in">
-          <div class="timeline-dot">5</div>
-          <h3><span>Négociations</span></h3>
-          <p>Décortique la term-sheet clause par clause et évite les erreurs classiques de négociation.</p>
-        </div>
+      <!-- Milestone 2 -->
+      <div class="milestone-banner">
+        <h3>🏆 Félicitations ! Tu maîtrises l'art de la levée de fonds.</h3>
+        <p>Tu sais négocier, valoriser et gérer tes investisseurs. Tu as tout pour lever tes premiers millions ! 🚀</p>
+      </div>
 
-        <div class="timeline-item fade-in">
-          <div class="timeline-dot">6</div>
-          <h3><span>Post-levée</span></h3>
-          <p>Mets en place le reporting, organise tes boards et apprends à mettre tes actionnaires à contribution.</p>
-        </div>
+    </div>
+  </section>
 
-        <div class="timeline-milestone fade-in">
-          <div class="timeline-dot">🏆</div>
-          Tu maîtrises l'art de la levée de fonds
-        </div>
-
+  <!-- ============================================================
+       6. CTA
+       ============================================================ -->
+  <section class="cta-section" id="cta">
+    <div class="container fade-in">
+      <h2>Tu souhaites maîtriser l'art de la levée de fonds ?</h2>
+      <p>Réserve ton appel gratuit avec un expert qui a accompagné +100 startups.</p>
+      <a href="#cta" class="btn-pink">Réserve ton appel gratuit</a>
+      <div class="calendly-placeholder" style="margin-top: 40px;">
+        <p>Intégration Calendly ici</p>
       </div>
     </div>
   </section>
@@ -792,8 +788,8 @@
        ============================================================ -->
   <section class="testimonials fade-in">
     <div class="container">
-      <h2 class="section-title">Ils ont levé avec LevéO</h2>
-      <p class="section-subtitle">Des entrepreneurs qui sont passés de l'idée au closing.</p>
+      <h2 class="section-title">Ce que disent nos membres</h2>
+      <p class="section-subtitle">Des entrepreneurs qui ont levé grâce à la méthode LevéO.</p>
       <div class="testimonials-grid">
 
         <div class="testimonial-card">
@@ -818,9 +814,6 @@
         </div>
 
       </div>
-      <div class="trustpilot-badge">
-        <span class="stars">★★★★★</span> 4.9/5 sur Trustpilot
-      </div>
     </div>
   </section>
 
@@ -831,34 +824,14 @@
     <div class="container">
       <div class="guarantee-box">
         <div class="guarantee-icon">🛡️</div>
-        <h2>Notre garantie</h2>
+        <h2>Garantie satisfait</h2>
         <p>Garantie levée de fonds au bout de 6 mois ou 3h de coaching offertes + accès illimité tant que ton financement n'est pas bouclé.</p>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       9. CTA FINAL
-       ============================================================ -->
-  <section class="cta-section" id="cta">
-    <div class="container fade-in">
-      <h2 class="section-title">Prêt à maîtriser l'art de la levée de fonds ?</h2>
-      <p class="section-subtitle">Réserve ton appel gratuit avec un expert qui a accompagné +100 startups.</p>
-      <form id="contact-form">
-        <input type="hidden" name="access_key" value="REMPLACER_PAR_TA_CLE_WEB3FORMS">
-        <input type="hidden" name="subject" value="Nouvelle demande d'appel LevéO">
-        <input type="hidden" name="from_name" value="LevéO Academy">
-        <input type="text" name="name" placeholder="Prénom" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="tel" name="phone" placeholder="Téléphone" required>
-        <button type="submit" class="btn">Je réserve mon appel</button>
-      </form>
-      <div id="form-msg" class="form-msg"></div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       10. FOOTER
+       9. FOOTER
        ============================================================ -->
   <footer class="footer">
     <div class="container">
@@ -875,20 +848,6 @@
        SCRIPT
        ============================================================ -->
   <script>
-    // -- Burger menu --
-    const burger = document.getElementById('burger');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileCta = document.getElementById('mobile-cta');
-
-    burger.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-    });
-    if (mobileCta) {
-      mobileCta.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-      });
-    }
-
     // -- Scroll fade-in via IntersectionObserver --
     const faders = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver((entries) => {
@@ -900,44 +859,6 @@
       });
     }, { threshold: 0.12 });
     faders.forEach(el => observer.observe(el));
-
-    // -- Web3Forms submission --
-    const form = document.getElementById('contact-form');
-    const formMsg = document.getElementById('form-msg');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      formMsg.textContent = '';
-      formMsg.className = 'form-msg';
-
-      const data = {
-        access_key: form.querySelector('[name="access_key"]').value,
-        subject: form.querySelector('[name="subject"]').value,
-        from_name: form.querySelector('[name="from_name"]').value,
-        name: form.querySelector('[name="name"]').value,
-        email: form.querySelector('[name="email"]').value,
-        phone: form.querySelector('[name="phone"]').value,
-      };
-
-      try {
-        const res = await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(data),
-        });
-        const json = await res.json();
-        if (json.success) {
-          formMsg.textContent = 'Merci ! On te contacte sous 24h.';
-          formMsg.classList.add('success');
-          form.reset();
-        } else {
-          throw new Error();
-        }
-      } catch {
-        formMsg.innerHTML = 'Une erreur est survenue, envoie-nous un email à <a href="mailto:adrien@leveo.academy" style="color:#1DB87A">adrien@leveo.academy</a>';
-        formMsg.classList.add('error');
-      }
-    });
   </script>
 </body>
 </html>
