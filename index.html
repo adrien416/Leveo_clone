@@ -724,6 +724,22 @@
 
 
     /* ============================================================
+       URGENCY BANNER
+       ============================================================ */
+    .urgency-banner {
+      background: linear-gradient(135deg, #E8318A, #F06BAC);
+      color: #fff;
+      text-align: center;
+      padding: 14px 24px;
+      font-weight: 600;
+      font-size: .95rem;
+      letter-spacing: .5px;
+      cursor: pointer;
+      transition: opacity .2s ease;
+    }
+    .urgency-banner:hover { opacity: .9; }
+
+    /* ============================================================
        CTA MID SECTIONS
        ============================================================ */
     .cta-mid {
@@ -828,6 +844,13 @@
   </header>
 
 <!-- ============================================================
+       URGENCY BANNER
+       ============================================================ -->
+  <a href="#" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/prouesse/30min-adrien-linkedin-site-clone-1?hide_event_type_details=1&hide_gdpr_banner=1&background_color=1a1a2e&text_color=ffffff&primary_color=E8318A'});return false;" class="urgency-banner" style="display:block;text-decoration:none;color:#fff;">
+    📞 Appel stratégique gratuit de 30 min — Réserve ton créneau
+  </a>
+
+  <!-- ============================================================
        1. HERO
        ============================================================ -->
   <main role="main">
