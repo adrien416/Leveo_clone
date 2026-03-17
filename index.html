@@ -664,6 +664,9 @@
     /* ============================================================
        STICKY HEADER
        ============================================================ */
+    /* Ensure Calendly popup overlay sits above sticky header */
+    .calendly-overlay { z-index: 10000 !important; }
+
     .sticky-header {
       position: fixed;
       top: 0;
